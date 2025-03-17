@@ -13,7 +13,8 @@ import {MatButtonModule} from '@angular/material/button';
     CommonModule,
     MatCardModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    CadastrarComponent
   ]
 })
 export class ProdutoModule { }

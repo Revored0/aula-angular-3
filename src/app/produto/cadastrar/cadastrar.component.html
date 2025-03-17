@@ -1,25 +1,34 @@
-<mat-card >
-    <mat-card-content>Trabalho Angular</mat-card-content>
-    <br>
-    <label for="">Nome Produto</label>
-    <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <mat-label>Tesoura</mat-label>
-          <input matInput #message maxlength="256" placeholder="Tesoura">
-        </mat-form-field>
-        <br>
-        <label for="">Tipo do Produto</label>
-        <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <mat-label>objetos Cortantes</mat-label>
-              <input matInput #message maxlength="256" placeholder="Tesoura">
-            </mat-form-field>
-          </form>
-      </form>
-      <br>
-      <div class="example-button-row">
-        <button mat-button style="background-color: green;color: white;">Criar</button>
-        <button mat-button style="background-color: red;color: white;">Deletar</button>
-      </div>
-  </mat-card>
-  
+<mat-card>
+  <mat-card-content>Trabalho Angular</mat-card-content>
+  <br>
+
+  <label for="nomeProduto">Nome Produto</label>
+  <mat-form-field class="example-full-width">
+    <mat-label>Nome do Produto</mat-label>
+    <input matInput [(ngModel)]="nomeProduto" placeholder="Ex: Tesoura">
+  </mat-form-field>
+
+  <br>
+  <label for="tipoProduto">Tipo do Produto</label>
+  <mat-form-field class="example-full-width">
+    <mat-label>Tipo do Produto</mat-label>
+    <input matInput [(ngModel)]="tipoProduto" placeholder="Ex: Objetos Cortantes">
+  </mat-form-field>
+
+  <br>
+  <div class="example-button-row">
+    <button mat-button (click)="cadastrarProduto()" style="background-color: green; color: white;">
+      Criar
+    </button>
+    <button mat-button (click)="deletarProdutos()" style="background-color: red; color: white;">
+      Deletar Todos
+    </button>
+  </div>
+
+  <h3>Lista de Produtos Cadastrados</h3>
+  <ul>
+    <li *ngFor="let produto of produtos">
+      {{ produto.nome }} - {{ produto.tipo }}
+    </li>
+  </ul>
+</mat-card>
