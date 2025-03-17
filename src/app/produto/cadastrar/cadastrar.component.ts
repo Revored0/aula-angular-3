@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-cadastrar',
@@ -15,9 +16,11 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class CadastrarComponent {
   produtos: { nome: string; tipo: string }[] = [];
-
   nomeProduto: string = '';
   tipoProduto: string = '';
+
+  
+  constructor(private router: Router) {}
 
   cadastrarProduto() {
     if (!this.nomeProduto.trim() || !this.tipoProduto.trim()) {
@@ -34,5 +37,9 @@ export class CadastrarComponent {
 
   deletarProdutos() {
     this.produtos = [];
+  }
+
+  voltar() {
+    this.router.navigate(['/']);
   }
 }
