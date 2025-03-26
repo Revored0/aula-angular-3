@@ -1,6 +1,16 @@
 
-<mat-toolbar style="background-color: blue;">
-  <span>Trabalho Angular</span>
+<mat-toolbar style="background-color: lightblue;">
+  <button mat-mini-fab (click)="navegar()">
+    <mat-icon fontIcon="arrow_right_alt" >menu</mat-icon>
+  </button>
+  <button style="margin-left: 5px;" mat-mini-fab  class="example-icon" (click)="voltar()" >
+    <mat-icon  fontIcon="home">a</mat-icon>
+  </button>
+  <span style="margin-left: 10px;">Trabalho Projeto Integrador</span>
+  
+  
+  
 </mat-toolbar>
+
 
 <router-outlet/>
