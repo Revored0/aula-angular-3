@@ -1,40 +1,63 @@
-<div style="display: flex;justify-content: center; align-items: center;margin-top: 50px;">
-    <mat-card appearance="outlined" style="width: 500px; align-items: center; ">
-        <br>
-        <form  class="example-form">
-            <mat-card-content>Cadastro de Pessoas</mat-card-content>
-        <br>
-            <mat-form-field class="example-full-width">
-            <mat-label>Digite seu nome completo</mat-label>
-            <input matInput placeholder="Ex. Nome" value="João Revoredo">
-             </mat-form-field>
-            <br>
-            <mat-label>Selecione seu Gênero</mat-label>
-            <br>
-            <mat-form-field appearance="fill">
-              <mat-label>Selecione uma opção</mat-label>
-              <mat-select [formControl]="toppings">
-                <mat-option *ngFor="let topping of toppingList" [value]="topping">
-                  {{ topping }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-            <br>
-            <mat-checkbox [(ngModel)]="isChecked">Aceito os termos e condições</mat-checkbox>
-            <br>
-            <mat-radio-group aria-label="Select an option">
-                <mat-radio-button  value="1">Branco</mat-radio-button>
-                <mat-radio-button value="2">Pardo</mat-radio-button>
-                <mat-radio-button value="3">Negro</mat-radio-button>
-              </mat-radio-group>
-          <br>
-          <div style="display: flex; justify-content: center; gap: 10px;">
-            <button mat-flat-button >Salvar</button>
-          <button mat-flat-button style="background-color: rgb(203, 22, 22);" (click)="voltar()">Cancelar</button>
-          </div>
-          
-      </form>
+<div style="display: flex; justify-content: center; align-items: center; margin-top: 50px;">
+  <mat-card appearance="outlined" style="width: 500px; align-items: center;">
+    <br>
+    
+    <form [formGroup]="pessoaForm" (ngSubmit)="salvar()" class="example-form">
+      <mat-card-content>Cadastro de Pessoas</mat-card-content>
+      <br>
+
+     
+      <mat-form-field class="example-full-width">
+        <mat-label>Digite seu nome completo</mat-label>
+        <input matInput placeholder="Ex. Nome" formControlName="nome">
+      </mat-form-field>
+      <br>
+
+      
+      <mat-label>Selecione seu Gênero</mat-label>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Selecione uma opção</mat-label>
+        <mat-select formControlName="genero">
+          <mat-option *ngFor="let topping of toppingList" [value]="topping">
+            {{ topping }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      
+      <mat-checkbox formControlName="termos">Aceito os termos e condições</mat-checkbox>
+      <br>
+
+      
+      <mat-radio-group formControlName="etnia">
+        <mat-radio-button value="1">Branco</mat-radio-button>
+        <mat-radio-button value="2">Pardo</mat-radio-button>
+        <mat-radio-button value="3">Negro</mat-radio-button>
+      </mat-radio-group>
+      <br>
+
+      
+      <div style="display: flex; justify-content: center; gap: 10px;">
+        <button mat-flat-button color="primary" type="submit">Salvar</button>
+        <button mat-flat-button style="background-color: rgb(203, 22, 22);" type="reset">Cancelar</button>
+      </div>
+    </form>
   </mat-card>
 </div>
 
-  
+
+<div *ngIf="dadosCadastrados" style="margin-top: 20px; text-align: center;">
+  <mat-card appearance="outlined" style="width: 500px; padding: 20px;">
+    <h3>Dados Cadastrados</h3>
+    <p><strong>Nome:</strong> {{ dadosCadastrados.nome }}</p>
+    <p><strong>Gênero:</strong> {{ dadosCadastrados.genero }}</p>
+    <p><strong>Termos aceitos:</strong> {{ dadosCadastrados.termos ? 'Sim' : 'Não' }}</p>
+    <p><strong>Etnia:</strong> 
+      <span *ngIf="dadosCadastrados.etnia === '1'">Branco</span>
+      <span *ngIf="dadosCadastrados.etnia === '2'">Pardo</span>
+      <span *ngIf="dadosCadastrados.etnia === '3'">Negro</span>
+    </p>
+  </mat-card>
+</div>

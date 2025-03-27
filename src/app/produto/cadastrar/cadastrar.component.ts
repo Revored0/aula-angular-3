@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './cadastrar.component.css'
 })
 export class CadastrarComponent {
+  
   toppings = new FormControl();
   toppingList = ['Masculino', 'Feminino', 'Prefiro não dizer'];
 
@@ -20,6 +21,21 @@ export class CadastrarComponent {
   voltar() {
     this.router.navigate(['/']); 
   }
+  pessoaForm = new FormGroup({
+    nome: new FormControl('', [Validators.required, Validators.minLength(3)]), 
+    genero: new FormControl('', Validators.required),
+    termos: new FormControl(false, Validators.requiredTrue), 
+    etnia: new FormControl('', Validators.required), 
+  });
+
+  dadosCadastrados: any = null;
+
+  salvar() {
+    if (this.pessoaForm.valid) {
+      this.dadosCadastrados = { ...this.pessoaForm.value }; 
+    }
+  }
+  
   
 }
 
