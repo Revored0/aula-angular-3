@@ -1,37 +1,34 @@
-<mat-card>
-  <mat-card-content>Trabalho Angular</mat-card-content>
-  <br>
+<mat-card appearance="outlined">
+    <mat-card-content>Cadastro de Pessoas</mat-card-content>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Digite seu nome completo</mat-label>
+          <input matInput placeholder="Ex. Nome" value="João Revoredo">
+        </mat-form-field>
+            <br>
+            <mat-label>Selecione seu Gênero</mat-label>
+            <br>
+            <mat-form-field appearance="fill">
+              <mat-label>Selecione uma opção</mat-label>
+              <mat-select [formControl]="toppings">
+                <mat-option *ngFor="let topping of toppingList" [value]="topping">
+                  {{ topping }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-checkbox [(ngModel)]="isChecked">Aceito os termos e condições</mat-checkbox>
+            <br>
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button  value="1">Branco</mat-radio-button>
+                <mat-radio-button value="2">Pardo</mat-radio-button>
+                <mat-radio-button value="3">Negro</mat-radio-button>
+              </mat-radio-group>
+          <br>
+          <button mat-flat-button color="primary">Salvar</button>
+          <button mat-flat-button color="warn">Cancelar</button>
 
-  <label for="nomeProduto">Nome Produto</label>
-  <mat-form-field class="example-full-width">
-    <mat-label>Nome do Produto</mat-label>
-    <input matInput [(ngModel)]="nomeProduto" placeholder="Ex: Tesoura">
-  </mat-form-field>
-
-  <br>
-  <label for="tipoProduto">Tipo do Produto</label>
-  <mat-form-field class="example-full-width">
-    <mat-label>Tipo do Produto</mat-label>
-    <input matInput [(ngModel)]="tipoProduto" placeholder="Ex: Objetos Cortantes">
-  </mat-form-field>
-
-  <br>
-  <div class="example-button-row">
-    <button mat-button (click)="cadastrarProduto()" style="background-color: green; color: white;">
-      Criar
-    </button>
-    <button mat-button (click)="deletarProdutos()" style="background-color: red; color: white;">
-      Deletar Todos
-    </button>
-    <button mat-button (click)="voltar()" style="background-color: red; color: white;">
-      Voltar
-    </button>
-  </div>
-
-  <h3>Lista de Produtos Cadastrados</h3>
-  <ul>
-    <li *ngFor="let produto of produtos">
-      {{ produto.nome }} - {{ produto.tipo }}
-    </li>
-  </ul>
-</mat-card>
+        
+      </form>
+  </mat-card>
+  

@@ -6,12 +6,12 @@ import { AppComponent } from './app.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ListarComponent } from './produto/listar/listar.component';
+import { ProdutoModule } from './produto/produto.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ListarComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +19,8 @@ import { ListarComponent } from './produto/listar/listar.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    MatSidenavModule
+    MatSidenavModule,
+    ProdutoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

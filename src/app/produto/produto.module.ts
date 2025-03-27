@@ -1,12 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ListarComponent } from './listar/listar.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
+    ListarComponent,
     CadastrarComponent
   ],
   imports: [
@@ -14,7 +21,19 @@ import {MatButtonModule} from '@angular/material/button';
     MatCardModule,
     MatInputModule,
     MatButtonModule,
-    CadastrarComponent
+    MatSelectModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatRadioModule
+  ],
+  exports: [
+    ListarComponent,
+    CadastrarComponent,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule
   ]
 })
 export class ProdutoModule { }

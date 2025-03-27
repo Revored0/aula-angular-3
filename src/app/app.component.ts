@@ -14,10 +14,13 @@ export class AppComponent {
   voltar() {
     this.router.navigate(['/']); 
   }
-  navegar() {
-    this.router.navigate(['/cadastrar-produto']);
-  }
+  
   listar(){
     this.router.navigate(['/listar'])
   }
+  
+  cadastrar(){
+    this.router.navigate(['/cadastrar'])
+  }
+
 }
