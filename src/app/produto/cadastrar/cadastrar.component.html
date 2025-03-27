@@ -1,10 +1,13 @@
-<mat-card appearance="outlined">
-    <mat-card-content>Cadastro de Pessoas</mat-card-content>
-    <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <mat-label>Digite seu nome completo</mat-label>
-          <input matInput placeholder="Ex. Nome" value="João Revoredo">
-        </mat-form-field>
+<div style="display: flex;justify-content: center; align-items: center;margin-top: 50px;">
+    <mat-card appearance="outlined" style="width: 500px; align-items: center; ">
+        <br>
+        <form  class="example-form">
+            <mat-card-content>Cadastro de Pessoas</mat-card-content>
+        <br>
+            <mat-form-field class="example-full-width">
+            <mat-label>Digite seu nome completo</mat-label>
+            <input matInput placeholder="Ex. Nome" value="João Revoredo">
+             </mat-form-field>
             <br>
             <mat-label>Selecione seu Gênero</mat-label>
             <br>
@@ -25,10 +28,13 @@
                 <mat-radio-button value="3">Negro</mat-radio-button>
               </mat-radio-group>
           <br>
-          <button mat-flat-button color="primary">Salvar</button>
-          <button mat-flat-button color="warn">Cancelar</button>
-
-        
+          <div style="display: flex; justify-content: center; gap: 10px;">
+            <button mat-flat-button >Salvar</button>
+          <button mat-flat-button style="background-color: rgb(203, 22, 22);" (click)="voltar()">Cancelar</button>
+          </div>
+          
       </form>
   </mat-card>
+</div>
+
   

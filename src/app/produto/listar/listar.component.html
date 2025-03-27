@@ -1,4 +1,33 @@
-<mat-card appearance="outlined">
-    <mat-card-content>Simple card</mat-card-content>
-  </mat-card>
+<div class="container">
+    <h2>Lista de Itens</h2>
+    <button style="margin-left: 5px;" mat-mini-fab (click)="cadastrar()">
+        <mat-icon fontIcon="workspace_premium" >menu</mat-icon>
+      </button>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Categoria</th>
+        <td mat-cell *matCellDef="let element">{{ element.category }}</td>
+      </ng-container>
+      <ng-container matColumnDef="raca">
+        <th mat-header-cell *matHeaderCellDef>Raça</th>
+        <td mat-cell *matCellDef="let element">{{ element.raca }}</td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+  
+  </div>
   

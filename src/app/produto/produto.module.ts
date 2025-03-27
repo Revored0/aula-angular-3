@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
+import { MatTableModule } from '@angular/material/table';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import {MatRadioModule} from '@angular/material/radio';
     ReactiveFormsModule,
     MatCheckboxModule,
     FormsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatTableModule,
+    MatIconModule
+    
   ],
   exports: [
     ListarComponent,
