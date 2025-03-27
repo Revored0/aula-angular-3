@@ -17,4 +17,7 @@ export class AppComponent {
   navegar() {
     this.router.navigate(['/cadastrar-produto']);
   }
+  listar(){
+    this.router.navigate(['/listar'])
+  }
 }

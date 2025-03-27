@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { ListarComponent } from './produto/listar/listar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListarComponent
   ],
   imports: [
     BrowserModule,
